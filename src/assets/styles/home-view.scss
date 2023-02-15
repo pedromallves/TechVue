@@ -1,0 +1,101 @@
+$news-bgd: #205295;
+$prod-bgd: #144272;
+
+.article{
+    padding: 2rem 4rem;
+    background: $news-bgd;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    &.light-bgd{
+        background: #3c77ab;
+    }
+    &-image{
+        width: 40vw;
+        box-shadow: 0px 0px 8px 2px #1a456a;
+        max-width: 400px;
+        border-radius: 1rem;
+        margin: 0 1rem;
+    }
+    &-info{
+        padding-left: 1rem;
+        text-align: justify;
+    }
+    &-title{
+        margin: 0.5rem 0;
+        font-size: 1.8rem;
+    }
+    &-description{
+        margin: 1.2rem 0;
+        font-size: 1.2rem;
+        max-width: 45vw;
+    }
+    &-redirect{
+        font-size: 1.1rem;
+        text-decoration: none;
+        padding: 0.4rem 1.2rem;
+        color: rgb(230, 241, 255);
+        border-radius: 2rem;
+        box-shadow: 1px 1px 6px 2px #1b456a;
+        background: #256299;
+        &:hover{
+            box-shadow: 1px 1px 6px 2px #4a5768;
+            background: #50a2e9;
+            color: white;
+        }
+    }
+}
+
+.products{
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    .product{
+        width: 25vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: $prod-bgd;
+        border-radius: 1rem;
+        padding: 1rem;
+        text-align: justify;
+        text-decoration: none;
+        color: rgb(230, 241, 255);
+        &:hover{
+            box-shadow: 0 0 3px 3px #144272;
+            background: #16508d;
+        }
+        &-title{
+            margin: 0.5rem 0 1rem;
+        }
+        .image-container{
+            width:100%;
+            width: 100%;
+            text-align: center;
+            height: 18vw;
+        }
+        &-image{
+            width: 100%;
+        }
+        &-description{
+            margin: 0 0 1.5rem;
+        }
+        &-btn{
+            font-size: 1.1rem;
+            padding: 0.5rem 1.4rem;
+            border-radius: 1rem;
+            background: #336dab;
+            color: rgb(230, 241, 255);
+            box-shadow: 0px 1px 4px 1px #215481;
+            border: none;
+            &:hover{
+                color: rgb(253 253 253);
+                background: #63b7e9;
+                box-shadow: 0 0 2px 2px #5097c1;
+                cursor: pointer;
+            }
+        }
+    }
+}

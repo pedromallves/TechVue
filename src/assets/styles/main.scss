@@ -1,0 +1,67 @@
+$pri-bgd: #2C74B3;
+$sec-bgd: #0A2647;
+$default-color: rgb(230, 241, 255);
+
+body{
+    background: $pri-bgd;
+    color: white;
+    margin: 0;
+}
+
+#app{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: $sec-bgd;
+    padding: 0.2rem 1.5rem;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    min-height: 5vh;
+    .title{
+        margin: 0.5rem 0;
+        color: $default-color;
+        font-size: 2rem;
+    }
+    
+    .link-nav{
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: $default-color;
+        padding: 0 0.8vw;
+        &:hover{
+            color: #8b9fb5;
+        }
+    }
+}
+
+
+.foo{
+    bottom: 0;
+    background: $sec-bgd;
+    padding: 1rem 6rem 0.5rem 6rem;
+    display: flex;
+    flex-direction: column;
+    color: $default-color;
+    .foo-title{
+        margin: 0 0 1rem 0;
+    }
+    .social{
+        padding: 0;
+        margin: 0 0 0.5rem 0;
+        list-style: none;
+    }
+    .copyright{
+        align-self: center;
+        margin: 0 0 0.6rem 0;
+    }
+}
