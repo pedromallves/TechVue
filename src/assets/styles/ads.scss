@@ -1,0 +1,17 @@
+.adv{
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    overflow: hidden;
+    color: white;
+    border-radius: 5%;
+    border: 1px solid rgb(38 101 157);
+    &-title{
+        font-size: 1.2rem;
+    }
+    &-image{
+        width: inherit;
+    }
+}

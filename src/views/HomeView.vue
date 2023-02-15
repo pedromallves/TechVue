@@ -3,7 +3,7 @@
     <article class="article">
       <img
         class="article-image"
-        src="../assets/images/openai-img.png"
+        src="../assets/images/newsletter/openai-img.png"
         alt="Imagem sobre inteligência artificial"
       />
       <div class="article-info">
@@ -21,54 +21,9 @@
     </article>
 
     <article class="products">
-      <router-link :to="{ name: 'home' }" class="product">
-        <div class="img-container">
-          <img
-            class="product-image"
-            src="../assets/product-example-image.svg"
-            alt="imagem de produto"
-          />
-        </div>
-        <h1 class="product-title">Produto</h1>
-        <p class="product-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit fugit
-          optio sed, iste velit soluta. Nihil, a quod. Fuga, cupiditate minima
-          amet nam quas placeat ad? Quod doloribus pariatur nemo.
-        </p>
-        <button class="product-btn">Comprar</button>
-      </router-link>
-      <router-link :to="{ name: 'home' }" class="product">
-        <div class="img-container">
-          <img
-            class="product-image"
-            src="../assets/product-example-image.svg"
-            alt="imagem de produto"
-          />
-        </div>
-        <h1 class="product-title">Produto</h1>
-        <p class="product-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit fugit
-          optio sed, iste velit soluta. Nihil, a quod. Fuga, cupiditate minima
-          amet nam quas placeat ad? Quod doloribus pariatur nemo.
-        </p>
-        <button class="product-btn">Comprar</button>
-      </router-link>
-      <router-link :to="{ name: 'home' }" class="product">
-        <div class="image-container">
-          <img
-            class="product-image"
-            src="../assets/product-example-image.svg"
-            alt="imagem de produto"
-          />
-        </div>
-        <h1 class="product-title">Produto</h1>
-        <p class="product-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit fugit
-          optio sed, iste velit soluta. Nihil, a quod. Fuga, cupiditate minima
-          amet nam quas placeat ad? Quod doloribus pariatur nemo.
-        </p>
-        <button class="product-btn">Comprar</button>
-      </router-link>
+      <Product :product="product" />
+      <Product :product="product" />
+      <Product :product="product" />
     </article>
 
     <article class="article">
@@ -110,7 +65,15 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+import { reactive } from "vue";
+import Product from "../components/Product.vue";
+const product = reactive({
+  id: 1,
+  name: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, modi eius. Quam laudantium iure laboriosam dignissimos facere id",
+  value: 1000,
+}); //example of product
+</script>
 
 <style lang="scss" scoped>
 @use "../assets/styles/home-view.scss";

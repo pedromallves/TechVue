@@ -9,36 +9,6 @@ main{
     width: 80vw;
     display: inline;
     border-right: 1px solid #286397ba;
-    .notice{
-        padding: 2rem 1rem;
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: white;
-        max-height: 180px;
-        border-bottom: 1px solid #286397;
-        &:hover{
-            box-shadow: 0px 0px 3px 2px #3d83c1;
-        }
-        &-image{
-            width: 20vw;
-            box-shadow: 0px 0px 8px 2px #1a456a;
-            border-radius: 1rem;
-            margin: 1rem;
-            max-height: inherit;
-            padding: 0.5rem;
-        }
-        &-text{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: justify;
-            padding-right: 1rem;
-        }
-        &-title{
-            margin: 0;
-        }
-    }
 }
 
 .adv-space{
@@ -47,22 +17,4 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    .adv{
-        width: inherit;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        overflow: hidden;
-        color: white;
-        border-radius: 5%;
-        border: 1px solid rgb(38 101 157);
-        &-title{
-            font-size: 1.2rem;
-        }
-        &-image{
-            width: inherit;
-        }
-    }
-
 }

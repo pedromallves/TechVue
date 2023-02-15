@@ -26,7 +26,7 @@
       <li>GitHub: exemplo</li>
       <li>Email: exemplo</li>
     </ul>
-    <p class="copyright">@ 2023 Contron</p>
+    <p class="copyright">@ 2023 TechVue</p>
   </footer>
 </template>
 
