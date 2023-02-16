@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 .adv{
     width: inherit;
     display: flex;
@@ -5,13 +7,16 @@
     align-items: center;
     text-decoration: none;
     overflow: hidden;
-    color: white;
+    color: $default-color;
     border-radius: 5%;
     border: 1px solid rgb(38 101 157);
+    background: $element-bgd;
     &-title{
         font-size: 1.2rem;
+        padding: 0 0.4rem;
     }
     &-image{
-        width: inherit;
+        max-width: -webkit-fill-available;
+        padding: 0.4rem;
     }
 }

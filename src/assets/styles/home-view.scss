@@ -1,9 +1,8 @@
-$news-bgd: #205295;
-$prod-bgd: #144272;
+@use "variables" as *;
 
 .article{
     padding: 2rem 4rem;
-    background: $news-bgd;
+    background: $news-main-bgd;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -34,14 +33,14 @@ $prod-bgd: #144272;
         font-size: 1.1rem;
         text-decoration: none;
         padding: 0.4rem 1.2rem;
-        color: rgb(230, 241, 255);
+        color: $default-color;
         border-radius: 2rem;
         box-shadow: 1px 1px 6px 2px #1b456a;
-        background: #256299;
+        background: $btn-bgd;
         &:hover{
             box-shadow: 1px 1px 6px 2px #4a5768;
-            background: #50a2e9;
-            color: white;
+            background: $btn-bgd-hover;
+            color: $default-color;
         }
     }
 }

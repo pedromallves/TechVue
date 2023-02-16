@@ -1,19 +1,17 @@
-$news-bgd: #205295;
-$prod-bgd: #144272;
-
 .container{
     display: flex;
 }
 main{
     overflow: hidden;
-    width: 80vw;
+    max-width: 84vw;
     display: inline;
     border-right: 1px solid #286397ba;
+    padding: 1rem 0;
 }
 
 .adv-space{
-    width: 18vw;
-    margin: 1vw;
+    width: 14vw;
+    margin: 2vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

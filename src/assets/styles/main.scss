@@ -1,6 +1,4 @@
-$pri-bgd: #2C74B3;
-$sec-bgd: #0A2647;
-$default-color: rgb(230, 241, 255);
+@use "variables" as *;
 
 body{
     background: $pri-bgd;
