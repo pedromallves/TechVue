@@ -22,7 +22,7 @@ import Product from "../components/Product.vue";
 const product = reactive({
   id: 1,
   name: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, modi eius. Quam laudantium iure laboriosam dignissimos facere id",
-  value: 1000,
+  price: 1000,
 }); //example of product
 </script>
 

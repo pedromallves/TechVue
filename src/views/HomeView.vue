@@ -14,9 +14,7 @@
           quibusdam. Sunt hic, non ratione assumenda corporis explicabo earum
           laborum numquam.
         </p>
-        <router-link class="article-redirect" :to="{ name: 'home' }"
-          >Saiba mais</router-link
-        >
+        <router-link class="btn" :to="{ name: 'home' }">Saiba mais</router-link>
       </div>
     </article>
 
@@ -35,9 +33,7 @@
           quibusdam. Sunt hic, non ratione assumenda corporis explicabo earum
           laborum numquam.
         </p>
-        <router-link class="article-redirect" :to="{ name: 'home' }"
-          >Saiba mais</router-link
-        >
+        <router-link class="btn" :to="{ name: 'home' }">Saiba mais</router-link>
       </div>
       <img
         class="article-image"

@@ -2,10 +2,12 @@
 
 body{
     background: $pri-bgd;
-    color: white;
+    color: $default-color;
     margin: 0;
 }
-
+main{
+    flex-grow: 1;
+}
 #app{
     display: flex;
     flex-direction: column;
