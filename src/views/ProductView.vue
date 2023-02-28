@@ -36,7 +36,7 @@
         <h3 class="mproduct-discount">Desconto a vista</h3>
         <h3 class="mproduct-dprice">Preço com desconto</h3>
         <h3 class="mproduct-installments">Preço parcelado</h3>
-        <button class="btn">Comprar</button>
+        <button class="btn" @click="addToCart">Comprar</button>
       </div>
     </section>
     <section class="descriptions">
@@ -83,7 +83,6 @@
     <section class="products">
       <div class="products-nav">
         <h2 class="products-title">Outros produtos</h2>
-        <button class="btn">ver mais produtos</button>
       </div>
       <div class="products-section">
         <Product class="product" :product="product" />
@@ -103,6 +102,11 @@ const product = reactive({
   name: "Lorem ipsum dolor sit amet",
   price: 100,
 });
+
+const addToCart = () => {
+  //todo: add to cart
+  console.log("adicionado ao carrinho");
+};
 </script>
 
 <style lang="scss" scoped>
