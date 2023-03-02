@@ -1,0 +1,109 @@
+@use "variables" as *;
+@use "models" as *;
+
+main{
+    display: flex;
+}
+
+.cart{
+    margin: 2rem 0;
+    width: 60%;
+    background-color: $element-bgd;
+    .container{
+        padding: 1rem 0 1rem 2rem;
+    }
+    &-head{
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 0 0.4rem;
+    }
+    .list{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        .resume{
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            height: 5rem;
+            padding-bottom: 1rem;
+            .miniature{
+                width: 5rem;
+                height: 5rem;
+                object-fit: contain;
+                align-self: center;
+            }
+            .info{
+                height: 5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex-grow: 1;
+                padding: 0 1rem;
+                .brand{
+                    margin: 0;
+                    color: $darkened-color;
+                }
+                .name{
+                    margin: 0;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                }
+            }
+            .amount{
+                padding: 0 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                .description{
+                    margin: 0;
+                }
+                .change-amount{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: -webkit-fill-available;
+                    .amount-btn{
+                        background: $btn-bgd;
+                        border: 0;
+                        padding: 0.2rem 0.4rem;
+                        border-radius: 1rem;
+                        color: $default-color;
+                        cursor: pointer;
+                        &:hover{
+                            background: $btn-bgd-hover;
+                            box-shadow: 0 0 2px 1px $btn-bgd-hover;
+                        }
+                    }
+                }
+            }
+            .price{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                height: -webkit-fill-available;
+                padding: 0 1rem;
+                .text{
+                    margin: 0;
+                }
+                .current-price{
+                    margin: 0.4rem 0;
+                }
+            }
+        }
+    }
+}
+
+.payment{
+    margin: 2rem 0;
+    width: 40%;
+    background-color: $element-bgd;
+    .container{
+        padding: 1rem 2rem;
+    }
+}
