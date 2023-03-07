@@ -1,0 +1,22 @@
+@use 'variables' as *;
+@use 'models' as *;
+
+.products{
+    margin: 2rem 0;
+    padding: 2rem 4rem;
+    background: $ter-bgd;
+    &-nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    &-title{
+        font-size: 1.8rem;
+    }
+    &-section{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}

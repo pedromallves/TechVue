@@ -37,26 +37,34 @@
     </section>
     <section class="payment">
       <div class="container">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi id
-          veritatis fuga, aspernatur maiores enim modi commodi asperiores beatae
-          esse aliquam voluptatem sunt doloribus ad aut ipsam iure, nostrum
-          voluptas!
-        </p>
+        <div class="price">
+          <h2 class="title">Resumo</h2>
+          <div class="space-between">
+            <h3 class="desc">Valor dos produtos:</h3>
+            <h3 class="price">R$ 1000.00</h3>
+          </div>
+          <div class="space-between">
+            <h3 class="desc">Valor parcelado:</h3>
+            <h3 class="price">10x de R$ 100.00</h3>
+          </div>
+        </div>
+        <div class="purchase">
+          <h3 class="desc">valor a vista:</h3>
+          <h2 class="price">R$900.00</h2>
+          <button class="btn">Finalizar compra</button>
+          <button class="btn">Continuar comprando</button>
+        </div>
       </div>
     </section>
   </main>
   <article class="more">
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad earum corporis
-      ducimus temporibus laudantium nam officia repellat, facere illum iste
-      nobis distinctio unde, magni sequi? Repudiandae repellat adipisci quam
-      iure.
-    </p>
+    <MoreProducts />
   </article>
 </template>
 
-<script setup></script>
+<script setup>
+import MoreProducts from "../components/MoreProducts.vue";
+</script>
 
 <style lang="scss" scoped>
 @use "../assets/styles/cart-view.scss";

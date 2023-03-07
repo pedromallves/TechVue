@@ -104,6 +104,32 @@ main{
     width: 40%;
     background-color: $element-bgd;
     .container{
-        padding: 1rem 2rem;
+        padding: 1rem 2rem 0rem 3rem;
+        display: flex;
+        flex-direction: column;
+        .price{
+            .desc{
+                color: $darkened-color;
+                font-size: 1rem;
+            }
+            .price{
+                font-size: 1.2rem;
+            }
+        }
+        .purchase{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
+            .desc{
+                margin: 0;
+            }
+            .price{
+                margin: 0 0 2rem;
+            }
+            .btn{
+                margin-bottom: 1rem!important;
+            }
+        }
     }
 }

@@ -12,8 +12,10 @@
       <router-link :to="{ name: 'products' }" class="link-nav"
         >Produtos</router-link
       >
+      <router-link :to="{ name: 'cart' }" class="link-nav"
+        >Carrinho</router-link
+      >
       <!--to do:
-          <router-link :to="{ name: 'cart' }">Carrinho</router-link>
           <router-link :to="{ name: 'profile' }">Perfil</router-link>
         -->
     </nav>
