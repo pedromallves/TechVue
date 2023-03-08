@@ -10,6 +10,12 @@
     align-items: baseline;
 }
 
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .btn{
     background: $btn-bgd;
         color: $default-color;

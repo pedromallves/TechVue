@@ -9,6 +9,16 @@ const router = createRouter({
       name: "home",
       component: HomeView,
     },
+    // {
+    //   path: "/profile",
+    //   name: "profile",
+    //   component: () => import("../views/ProfileView.vue"),
+    // },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("../views/LoginView.vue"),
+    },
     {
       path: "/products",
       name: "products",
@@ -24,15 +34,24 @@ const router = createRouter({
       name: "cart",
       component: () => import("../views/CartView.vue"),
     },
-    // {
-    //   path: "/profile",
-    //   name: "profile",
-    //   component: () => import("../views/ProfileView.vue"),
-    // },
     {
       path: "/news",
       name: "news",
       component: () => import("../views/NewsView.vue"),
+    },
+    // {
+    //   path: "/news/:id",
+    //   name: "newsletter",
+    //   component: () => import("../views/NewsletterView.vue"),
+    // },
+    {
+      path: "/404",
+      name: "not-found",
+      component: () => import("../views/NotFoundView.vue"),
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      redirect: "/404",
     },
   ],
 });
