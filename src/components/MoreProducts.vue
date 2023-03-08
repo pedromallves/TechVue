@@ -1,14 +1,17 @@
 <template>
-  <section class="products">
+  <div class="products">
     <div class="products-nav">
       <h2 class="products-title">Outros produtos</h2>
+      <router-link :to="{ name: 'products' }" class="btn">
+        Ver todos
+      </router-link>
     </div>
     <div class="products-section">
       <Product class="product" :product="product" />
       <Product class="product" :product="product" />
       <Product class="product" :product="product" />
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup>

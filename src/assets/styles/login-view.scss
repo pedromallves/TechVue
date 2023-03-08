@@ -7,8 +7,10 @@
     padding: 2rem 0;
     border-radius: 0.4rem;
     .f-section{
-        width: 40vw;
+        width: 25vw;
+        min-width: max-content;
         text-align: center;
+        padding: 0 1rem;
         .form{
             display: flex;
             flex-direction: column;

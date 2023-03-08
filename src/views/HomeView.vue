@@ -17,13 +17,9 @@
         <router-link class="btn" :to="{ name: 'home' }">Saiba mais</router-link>
       </div>
     </article>
-
-    <article class="products">
-      <Product :product="product" />
-      <Product :product="product" />
-      <Product :product="product" />
+    <article class="more">
+      <MoreProducts />
     </article>
-
     <article class="article">
       <div class="article-info">
         <h1 class="article-title">Novidades</h1>
@@ -63,7 +59,6 @@
 
 <script setup>
 import { reactive } from "vue";
-import Product from "../components/Product.vue";
 const product = reactive({
   id: 1,
   name: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, modi eius. Quam laudantium iure laboriosam dignissimos facere id",

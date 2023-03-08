@@ -85,8 +85,6 @@
 </template>
 
 <script setup>
-import MoreProducts from "../components/MoreProducts.vue";
-
 const addToCart = () => {
   //todo: add to cart
   console.log("adicionado ao carrinho");
