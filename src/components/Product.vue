@@ -6,21 +6,23 @@
       <h2 class="product-price">{{ comp.price }}</h2>
       <p class="product-installments">10x de {{ comp.Installments }}</p>
     </router-link>
-    <button class="btn" @click="addToCart">Comprar</button>
+    <button class="btn" @click="addToCart(props.product)">Comprar</button>
   </li>
 </template>
 
 <script setup>
 import { computed } from "@vue/reactivity";
-import { formatCurrency } from "../helpers/helpers.js";
+import { formatCurrency, addToCart } from "../helpers/helpers.js";
 
 const props = defineProps({
   product: {
     id: Number,
+    brand: String,
     name: String,
     price: Number,
   },
 });
+
 const comp = computed(() => {
   const parcels = props.product.price / 10;
   return {
@@ -30,11 +32,6 @@ const comp = computed(() => {
     path: `/products/${props.product.id}`,
   };
 });
-
-const addToCart = () => {
-  // todo: add to cart
-  console.log("adicionado ao carrinho");
-};
 </script>
 
 <style lang="scss" scoped>

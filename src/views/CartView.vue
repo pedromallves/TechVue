@@ -64,6 +64,7 @@ const product = reactive({
   price: 1000,
   amount: 1,
 });
+
 const values = computed(() => {
   const total = product.price * product.amount;
   const parcels = total / 10;
@@ -74,13 +75,17 @@ const values = computed(() => {
     totalWithDiscount: formatCurrency(totalWithDiscount),
   };
 });
+
 function del(id) {
   product.amount = 0;
 }
+
 function removeAll() {
   product.amount = 0;
 }
+
 function buy() {
+  product.amount = 0;
   alert("Compra realizada com sucesso!");
 }
 </script>

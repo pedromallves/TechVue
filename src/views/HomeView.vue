@@ -57,14 +57,7 @@
   </main>
 </template>
 
-<script setup>
-import { reactive } from "vue";
-const product = reactive({
-  id: 1,
-  name: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, modi eius. Quam laudantium iure laboriosam dignissimos facere id",
-  price: 1000,
-}); //example of product
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 @use "../assets/styles/home-view.scss";

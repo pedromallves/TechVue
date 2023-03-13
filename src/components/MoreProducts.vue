@@ -7,9 +7,7 @@
       </router-link>
     </div>
     <div class="products-section">
-      <Product class="product" :product="product" />
-      <Product class="product" :product="product" />
-      <Product class="product" :product="product" />
+      <Product v-for="product in products" class="product" :product="product" />
     </div>
   </div>
 </template>
@@ -17,12 +15,9 @@
 <script setup>
 import { reactive } from "vue";
 import Product from "../components/Product.vue";
+import { getProducts } from "../assets/db/management.js";
 
-const product = reactive({
-  id: 1,
-  name: "Lorem ipsum dolor sit amet",
-  price: 100,
-});
+const products = reactive(getProducts(3));
 </script>
 
 <style lang="scss" scoped>

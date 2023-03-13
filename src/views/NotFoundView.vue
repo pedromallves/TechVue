@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div class="center">
     <h1>Not Found</h1>
   </div>
 </template>
 
 <script setup></script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+@use "../assets/styles/models.scss";
+</style>

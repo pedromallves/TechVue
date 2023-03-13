@@ -1,10 +1,7 @@
 <template>
-  <main>
+  <main v-if="product">
     <h2 class="title">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, inventore
-      necessitatibus nobis repellat debitis libero mollitia enim est blanditiis?
-      Culpa consequatur sapiente, inventore laborum minus id eos quisquam fugiat
-      maxime!
+      {{ product.name }}
     </h2>
     <section class="mproduct">
       <div class="mproduct-side">
@@ -82,13 +79,16 @@
     </section>
     <MoreProducts />
   </main>
+  <span v-else>{{ router.push("/404") }}</span>
 </template>
 
 <script setup>
-const addToCart = () => {
-  //todo: add to cart
-  console.log("adicionado ao carrinho");
-};
+import { useRoute, useRouter } from "vue-router";
+import { getProduct } from "../assets/db/management.js";
+
+const route = useRoute();
+const router = useRouter();
+const product = getProduct(parseInt(route.params.id));
 </script>
 
 <style lang="scss" scoped>
