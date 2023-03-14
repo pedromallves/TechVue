@@ -6,76 +6,53 @@
     <section class="mproduct">
       <div class="mproduct-side">
         <img
+          @click="changeImage(index)"
+          v-for="index in product.qttImages"
           class="mproduct-miniature"
-          src="../assets/images/product/product-1.svg"
-          alt="miniatura de produto"
-        />
-        <img
-          class="mproduct-miniature"
-          src="../assets/images/product/product-1.svg"
-          alt="miniatura de produto"
-        />
-        <img
-          class="mproduct-miniature"
-          src="../assets/images/product/product-1.svg"
+          :src="`/src/assets/images/product/${product.id}/prod-${product.id}${index}.svg`"
           alt="miniatura de produto"
         />
       </div>
       <img
         class="mproduct-image"
-        src="../assets/images/product/product-1.svg"
+        :src="`/src/assets/images/product/${product.id}/prod-${product.id}1.svg`"
         alt="imagem de produto"
       />
       <div class="mproduct-values">
-        <h3 class="mproduct-stock stock">Disponibilidade:</h3>
-        <h3 class="mproduct-fprice">Preço sem desconto</h3>
-        <h2 class="mproduct-pprice">Preço com desconto</h2>
-        <h3 class="mproduct-discount">Desconto a vista</h3>
-        <h3 class="mproduct-dprice">Preço com desconto</h3>
-        <h3 class="mproduct-installments">Preço parcelado</h3>
-        <button class="btn" @click="addToCart">Comprar</button>
+        <h3 class="mproduct-stock" :class="product.availability">
+          Disponibilidade:
+        </h3>
+        <h3 class="mproduct-fprice">{{ prices.price }}</h3>
+        <h2 class="mproduct-pprice">{{ prices.discount }}</h2>
+        <h3 class="mproduct-discount">{{ prices.inCash }}</h3>
+        <h3 class="mproduct-installments">
+          Em até 10x de {{ prices.installment }}
+        </h3>
+        <button
+          v-if="product.availability == 'available'"
+          class="btn"
+          @click="addToCart"
+        >
+          Comprar
+        </button>
       </div>
     </section>
     <section class="descriptions">
       <h2 class="descriptions-title">Descrição do produto</h2>
-      <h2 class="descriptions-name">Lorem ipsum dolor sit</h2>
       <p class="descriptions-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet et
-        doloribus blanditiis laborum pariatur placeat quam atque iure aliquid,
-        at esse ipsum sint assumenda impedit, architecto quas debitis error
-        harum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-        minima recusandae in repellendus vitae. Illum eligendi fuga quis
-        doloremque laborum unde tempora totam veniam. Recusandae dicta minima
-        ullam eum temporibus?
-      </p>
-      <h2 class="descriptions-name">Lorem ipsum, dolor sit amet</h2>
-      <p class="descriptions-text">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque
-        recusandae, quisquam nemo suscipit quos debitis possimus fugiat iure
-        tempora aliquam officiis eum dolor earum magnam quam voluptate nisi
-        laborum aperiam.
+        {{ product.description }}
       </p>
     </section>
     <section class="specifications">
       <h2 class="specifications-title">Especificações tecnicas</h2>
-      <h3 class="specifications-section">Lorem ipsum, dolor sit amet</h3>
-      <ul class="specifications-list">
-        <li class="specifications-item">Lorem ipsum dolor</li>
-        <li class="specifications-item">Lorem ipsum dolor</li>
-        <li class="specifications-item">Lorem ipsum dolor</li>
-      </ul>
-      <h3 class="specifications-section">Lorem ipsum, dolor sit amet</h3>
-      <ul class="specifications-list">
-        <li class="specifications-item">Lorem ipsum dolor</li>
-        <li class="specifications-item">Lorem ipsum dolor</li>
-        <li class="specifications-item">Lorem ipsum dolor</li>
-        <li class="specifications-item">Lorem ipsum dolor</li>
-      </ul>
-      <h3 class="specifications-section">Lorem ipsum, dolor sit amet</h3>
-      <ul class="specifications-list">
-        <li class="specifications-item">Lorem ipsum dolor</li>
-        <li class="specifications-item">Lorem ipsum dolor</li>
-      </ul>
+      <div v-for="specification in product.specifications">
+        <h3 class="specifications-section">
+          {{ specification.name }}
+        </h3>
+        <ul class="specifications-list" v-for="att in specification.values">
+          <li class="specifications-item">{{ att.name }}: {{ att.value }}</li>
+        </ul>
+      </div>
     </section>
     <MoreProducts />
   </main>
@@ -85,10 +62,36 @@
 <script setup>
 import { useRoute, useRouter } from "vue-router";
 import { getProduct } from "../assets/db/management.js";
+import { computed } from "@vue/reactivity";
+import { formatCurrency } from "../helpers/helpers.js";
 
 const route = useRoute();
 const router = useRouter();
+/**
+ * Component used to get a specific product
+ */
 const product = getProduct(parseInt(route.params.id));
+
+/**
+ * Computed component containing the formatted prices
+ */
+const prices = computed(() => {
+  const price = product.price;
+  return {
+    price: formatCurrency(price),
+    discount: formatCurrency(price * 0.9),
+    installment: formatCurrency(price / 10),
+    inCash: formatCurrency(price * 0.85),
+  };
+});
+
+/**
+ * Temporary function to change the image of the product
+ */
+function changeImage(index) {
+  const image = document.querySelector(".mproduct-image");
+  image.src = `/src/assets/images/product/${product.id}/prod-${product.id}${index}.svg`;
+}
 </script>
 
 <style lang="scss" scoped>

@@ -25,6 +25,7 @@
         border: $border;
         padding: 0.25rem;
         border-radius: 0.313rem;
+        cursor: pointer;
     }
     &-image{
         width: 32rem;
@@ -40,16 +41,16 @@
     &-stock{
         color: $darkened-color;
         margin: 0;
-        &.stock{
+        &.unavailable{
+            &::after{
+            content: ' Indisponível';
+            color: $darkened-color;
+            }
+        }
+        &.available{
             &::after{
                 content: ' Em estoque';
                 color: white;
-            }
-        }
-        &.out-of-stock{
-            &::after{
-                content: ' Indisponível';
-                color: $darkened-color;
             }
         }
     }
@@ -57,6 +58,7 @@
         color: $darkened-color;
         font-size: 1rem;
         margin: 1rem 0 0;
+        text-decoration: line-through;
     }
     &-pprice{
         margin: 0;

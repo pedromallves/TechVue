@@ -6,13 +6,17 @@
       <h2 class="product-price">{{ comp.price }}</h2>
       <p class="product-installments">10x de {{ comp.Installments }}</p>
     </router-link>
-    <button class="btn" @click="addToCart(props.product)">Comprar</button>
+    <button v-if="product.availability == 'available'" class="btn" @click="add">
+      Comprar
+    </button>
   </li>
 </template>
 
 <script setup>
 import { computed } from "@vue/reactivity";
 import { formatCurrency, addToCart } from "../helpers/helpers.js";
+
+const emit = defineEmits(["new"]);
 
 const props = defineProps({
   product: {
@@ -23,15 +27,27 @@ const props = defineProps({
   },
 });
 
+/**
+ * Computed component containing the formatted prices and the image path
+ */
 const comp = computed(() => {
   const parcels = props.product.price / 10;
   return {
-    src: `/src/assets/images/product/product-${props.product.id}.svg`,
+    src: `/src/assets/images/product/${props.product.id}/prod-${props.product.id}1.svg`,
     Installments: formatCurrency(parcels),
     price: formatCurrency(props.product.price),
     path: `/products/${props.product.id}`,
   };
 });
+
+/**
+ * Function to add a product to the cart
+ * (it is also used to update the cart)
+ */
+function add() {
+  const test = addToCart(props.product);
+  test ? emit("new", true) : emit("new", false);
+}
 </script>
 
 <style lang="scss" scoped>

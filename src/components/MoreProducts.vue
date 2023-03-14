@@ -7,7 +7,12 @@
       </router-link>
     </div>
     <div class="products-section">
-      <Product v-for="product in products" class="product" :product="product" />
+      <Product
+        v-for="product in products"
+        class="product"
+        :product="product"
+        @new="$emit('new', $event)"
+      />
     </div>
   </div>
 </template>
@@ -17,6 +22,9 @@ import { reactive } from "vue";
 import Product from "../components/Product.vue";
 import { getProducts } from "../assets/db/management.js";
 
+/**
+ * This component is used to get a specific amount of products
+ */
 const products = reactive(getProducts(3));
 </script>
 

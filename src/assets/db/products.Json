@@ -1,49 +1,76 @@
 [
-    { "id": 0, "brand": "Brand A", "name": "Product A", "price": 1000, "availability": "true", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, inventore necessitatibus nobis repellat debitis libero mollitia enim est blanditiis? Culpa consequatur sapiente, inventore laborum minus id eos quisquam fugiat maxime",
-    "specifications": [
-        [{ "id": 0, "name": "Color", "value": "Red" },
-        { "id": 1, "name": "Size", "value": "XL" },
-        { "id": 2, "name": "Weight", "value": "1kg" }
-        ],
-        [{ "id": 0, "name": "Color", "value": "Blue" },
-        { "id": 1, "name": "Size", "value": "L" },
-        { "id": 2, "name": "Weight", "value": "1kg" }
-        ],
-
-        [{ "id": 0, "name": "Color", "value": "Green" },
-        { "id": 1, "name": "Size", "value": "M" },
-        { "id": 2, "name": "Weight", "value": "1kg" }
-    ]]
-    },
-    { "id": 1, "brand": "Brand A", "name": "Product B", "price": 2000, "availability": "false", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, inventore necessitatibus nobis repellat debitis libero mollitia enim est blanditiis? Culpa consequatur sapiente, inventore laborum minus id eos quisquam fugiat maxime",
-    "specifications": [
-        [{ "id": 0, "name": "Color", "value": "Cyan" },
-        { "id": 2, "name": "Weight", "value": "2kg" }
-        ],
-        [{ "id": 0, "name": "Color", "value": "Violet" },
-        { "id": 2, "name": "Weight", "value": "1kg" }
-        ]]
-    },{ "id": 3, "brand": "Brand B", "name": "Product A", "price": 1500, "availability": "true", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, inventore necessitatibus nobis repellat debitis libero mollitia enim est blanditiis? Culpa consequatur sapiente, inventore laborum minus id eos quisquam fugiat maxime",
-    "specifications": [
-        [{ "id": 0, "name": "Color", "value": "Red" },
-        { "id": 1, "name": "Size", "value": "XL" },
-        { "id": 2, "name": "Weight", "value": "1kg" }
-        ],
-        [{ "id": 0, "name": "Color", "value": "Blue" },
-        { "id": 1, "name": "Size", "value": "L" },
-        { "id": 2, "name": "Weight", "value": "1kg" }
-        ],
-
-        [{ "id": 0, "name": "Color", "value": "Green" },
-        { "id": 1, "name": "Size", "value": "M" },
-        { "id": 2, "name": "Weight", "value": "1kg" }
-    ]]
-    },{ "id": 4, "brand": "Brand C", "name": "Product A", "price": 5000, "availability": "true", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, inventore necessitatibus nobis repellat debitis libero mollitia enim est blanditiis? Culpa consequatur sapiente, inventore laborum minus id eos quisquam fugiat maxime",
-    "specifications": [
-        [{ "id": 0, "name": "Color", "value": "Red" },
-        { "id": 1, "name": "Size", "value": "XL" },
-        { "id": 2, "name": "Weight", "value": "1kg" }
-        ]
-    ]
+    { "id": 0, "brand": "Marca A", "name": "Produto A", "price": 1000, "availability": "available", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, inventore necessitatibus nobis repellat debitis libero mollitia enim est blanditiis? Culpa consequatur sapiente, inventore laborum minus id eos quisquam fugiat maxime", "qttImages": 3,
+    "specifications": {
+        "specA": {
+            "name": "Lorem impsum",
+            "values":[
+                { "id": 0, "name": "Cor", "value": "Vermelho" },
+                { "id": 1, "name": "Tamanho", "value": "XL" },
+                { "id": 2, "name": "Peso", "value": "1kg" }
+        ]},
+        "specB": {
+            "name": "Sit amet",
+            "values": [
+                { "id": 0, "name": "Cor", "value": "Azul" },
+                { "id": 1, "name": "Tamanho", "value": "L" },
+                { "id": 2, "name": "Peso", "value": "1kg" }
+        ]},
+        "specC": {
+            "name": "Consectetur adipisicing",
+            "values": [
+                { "id": 0, "name": "Cor", "value": "Vermelho" },
+                { "id": 1, "name": "Tamanho", "value": "M" },
+                { "id": 2, "name": "Peso", "value": "1kg" }
+        ]}
     }
+    },
+    { "id": 1, "brand": "Marca A", "name": "Produto B", "price": 2000, "availability": "unavailable", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, inventore necessitatibus nobis repellat debitis libero mollitia enim est blanditiis? Culpa consequatur sapiente, inventore laborum minus id eos quisquam fugiat maxime", "qttImages": 2,
+    "specifications": { 
+        "specA": {
+            "name": "Lorem impsum",
+            "values": [
+                { "id": 0, "name": "Cor", "value": "Ciano" },
+                { "id": 2, "name": "Peso", "value": "2kg" }
+        ]},
+        "specB": {
+            "name": "Est blanditiis",
+            "values": [
+                { "id": 0, "name": "Cor", "value": "Violeta" },
+                { "id": 2, "name": "Peso", "value": "1kg" }
+        ]}}
+    },
+    { "id": 2, "brand": "Marca B", "name": "Produto A", "price": 1500, "availability": "available", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, inventore necessitatibus nobis repellat debitis libero mollitia enim est blanditiis? Culpa consequatur sapiente, inventore laborum minus id eos quisquam fugiat maxime", "qttImages": 2,
+    "specifications": {
+        "specA": {
+            "name": "Culpa consequatur",
+            "values": [
+                { "id": 0, "name": "Cor", "value": "Vermelho" },
+                { "id": 1, "name": "Tamanho", "value": "XL" },
+                { "id": 2, "name": "Peso", "value": "1kg" }
+        ]},
+        "specB": {
+            "name": "Inventore laborum",
+            "values": [
+                { "id": 0, "name": "Cor", "value": "Azul" },
+                { "id": 1, "name": "Tamanho", "value": "L" },
+                { "id": 2, "name": "Peso", "value": "1kg" }
+        ]},
+        "specC": {
+            "name": "Necessitatibus nobis",
+            "values": [
+                { "id": 0, "name": "Cor", "value": "Vermelho" },
+                { "id": 1, "name": "Tamanho", "value": "M" },
+                { "id": 2, "name": "Peso", "value": "1kg" }
+    ]}}
+    },
+    { "id": 3, "brand": "Marca C", "name": "Produto A", "price": 5000, "availability": "available", "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, inventore necessitatibus nobis repellat debitis libero mollitia enim est blanditiis? Culpa consequatur sapiente, inventore laborum minus id eos quisquam fugiat maxime", "qttImages": 1,
+    "specifications": {
+        "specA": {
+            "name": "Fuga inventore",
+            "values": [
+                { "id": 0, "name": "Cor", "value": "Vermelho" },
+                { "id": 1, "name": "Tamanho", "value": "XL" },
+                { "id": 2, "name": "Peso", "value": "1kg" }
+        ]}
+    }}
 ]

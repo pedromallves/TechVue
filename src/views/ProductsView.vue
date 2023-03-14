@@ -1,16 +1,7 @@
 <template>
   <main>
     <ul class="products">
-      <Product :product="product" />
-      <Product :product="product" />
-      <Product :product="product" />
-      <Product :product="product" />
-      <Product :product="product" />
-      <Product :product="product" />
-      <Product :product="product" />
-      <Product :product="product" />
-      <Product :product="product" />
-      <Product :product="product" />
+      <Product v-for="product in products" :product="product" />
     </ul>
     <div></div>
   </main>
@@ -19,12 +10,12 @@
 <script setup>
 import { reactive } from "vue";
 import Product from "../components/Product.vue";
-const product = reactive({
-  id: 1,
-  brand: "Lorem ipsum",
-  name: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, modi eius. Quam laudantium iure laboriosam dignissimos facere id",
-  price: 1000,
-}); //example of product
+import { getAllProducts } from "../assets/db/management";
+
+/**
+ * This component is used to get all the products
+ */
+const products = reactive(getAllProducts());
 </script>
 
 <style lang="scss" scoped>

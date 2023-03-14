@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="cart">
+    <section class="cart" :key="update">
       <div class="container">
         <div class="cart-head">
           <h2 class="title">Produtos adicionados</h2>
@@ -9,21 +9,23 @@
         <div class="cart-products">
           <ul class="list">
             <CartProduct
-              v-if="product.amount > 0"
+              v-if="cart"
+              v-for="product in cart"
               :product="product"
-              @add="() => product.amount++"
               @remove="
-                () =>
-                  product.amount > 1 ? product.amount-- : (product.amount = 1)
+                total - product.price >= 0
+                  ? (total -= product.price)
+                  : (total = 0)
               "
-              @delete="del(id)"
+              @add="total += product.price"
+              @delete="prodDel"
             />
           </ul>
         </div>
       </div>
     </section>
     <section class="payment">
-      <div class="container">
+      <div class="container" v-if="cart.length > 0">
         <div class="price">
           <h2 class="title">Resumo</h2>
           <div class="space-between">
@@ -44,49 +46,72 @@
           >
         </div>
       </div>
+      <div v-else class="container">
+        <h2 class="title">Nenhum Produto adicionado até o momento!</h2>
+      </div>
     </section>
   </main>
   <article class="more">
-    <MoreProducts />
+    <MoreProducts @new="reload" />
+    <!--event called when adding new product -->
   </article>
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { ref, reactive } from "vue";
 import { formatCurrency } from "../helpers/helpers";
 import CartProduct from "../components/CartProduct.vue";
 import { computed } from "@vue/reactivity";
 
-const product = reactive({
-  id: 1,
-  brand: "Nike",
-  name: "Nike Air Max 270 React",
-  price: 1000,
-  amount: 1,
-});
+/**
+ * update action for component if cart is empty or don't have a product that was added
+ */
+const update = ref(0);
+function reload(e) {
+  e ? window.location.reload() : update.value++;
+}
 
+const cart = reactive($cookies.get("cart") || []);
+/** Total value of products */
+const total = ref(
+  cart.reduce((acc, prod) => acc + prod.price * prod.amount, 0)
+);
+
+/**
+ * Values formated for currency
+ */
 const values = computed(() => {
-  const total = product.price * product.amount;
-  const parcels = total / 10;
-  const totalWithDiscount = total * 0.9;
+  const parcels = total.value / 10;
+  const totalWithDiscount = total.value * 0.9;
   return {
-    total: formatCurrency(total),
+    total: formatCurrency(total.value),
     parcels: formatCurrency(parcels),
     totalWithDiscount: formatCurrency(totalWithDiscount),
   };
 });
 
-function del(id) {
-  product.amount = 0;
-}
-
+/**
+ * Remove all products from cart
+ */
 function removeAll() {
-  product.amount = 0;
+  $cookies.remove("cart");
+  window.location.reload();
 }
 
+/**
+ * Simulates the purchase of products
+ */
 function buy() {
-  product.amount = 0;
   alert("Compra realizada com sucesso!");
+  $cookies.remove("cart");
+  window.location.reload();
+}
+
+/**
+ * Update the total value of the cart
+ */
+function prodDel(val) {
+  total.value - val >= 0 ? (total.value -= val) : (total.value = 0);
 }
 </script>
 

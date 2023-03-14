@@ -5,6 +5,10 @@ export function getProduct(id) {
   return products.find((p) => p.id === id);
 }
 
+export function getAllProducts() {
+  return products;
+}
+
 export function getProducts(qtt) {
   return products.slice(0, qtt);
 }
