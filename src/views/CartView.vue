@@ -7,9 +7,8 @@
           <button class="btn" @click="removeAll">Remover todos</button>
         </div>
         <div class="cart-products">
-          <ul class="list">
+          <ul class="list" v-if="cart">
             <CartProduct
-              v-if="cart"
               v-for="product in cart"
               :product="product"
               @remove="
@@ -108,7 +107,7 @@ function buy() {
 }
 
 /**
- * Update the total value of the cart
+ * Update the total value of the cart when a product is delleted
  */
 function prodDel(val) {
   total.value - val >= 0 ? (total.value -= val) : (total.value = 0);

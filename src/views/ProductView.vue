@@ -67,9 +67,7 @@ import { formatCurrency } from "../helpers/helpers.js";
 
 const route = useRoute();
 const router = useRouter();
-/**
- * Component used to get a specific product
- */
+
 const product = getProduct(parseInt(route.params.id));
 
 /**

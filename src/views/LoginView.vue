@@ -1,72 +1,92 @@
 <template>
   <main class="center">
     <section class="container">
-      <div id="login" class="f-section">
+      <div v-if="menu.switchLoginRegister == true" class="f-section">
         <h1>Entrar</h1>
-        <form class="form">
+        <form id="sendLogin" @submit.prevent="sendLogin" class="form">
           <input
             type="email"
-            id="email"
+            v-model="menu.login.email"
             name="email"
             placeholder="Email"
             required
           />
           <div class="psw">
             <input
-              type="password"
-              id="password"
+              :type="menu.inputType"
+              v-model="menu.login.password"
               name="Password"
               placeholder="senha"
               required
             />
-            <button type="button" class="show-icon" @click="showPassword">
+            <button
+              type="button"
+              class="show-icon"
+              @click="menu.inputType = 'text'"
+              @mouseout="menu.inputType = 'password'"
+            >
               &#128065;
             </button>
           </div>
           <button type="submit" class="btn">Entrar</button>
-          <button class="change" type="button" @click="toggle">
+          <button
+            class="change"
+            type="button"
+            @click="() => (menu.switchLoginRegister = false)"
+          >
             Registrar
           </button>
         </form>
       </div>
-      <div id="register" class="f-section hidden">
+      <div v-else class="f-section">
         <h1>Registrar</h1>
-        <form class="form">
+        <form id="sendRegister" @submit.prevent="sendRegister" class="form">
           <input
             type="text"
-            id="name"
+            v-model="menu.register.name"
             name="name"
             placeholder="Nome"
             required
           />
           <input
             type="email"
-            id="email"
+            v-model="menu.register.email"
             name="email"
             placeholder="Email"
             required
           />
           <div class="psw">
             <input
-              type="password"
-              id="password"
+              :type="menu.inputType"
+              v-model="menu.register.password"
               name="password"
               placeholder="Senha"
               required
             />
-            <button type="button" class="show-icon" @click="showPassword">
+            <button
+              type="button"
+              class="show-icon"
+              @click="menu.inputType = 'text'"
+              @mouseout="menu.inputType = 'password'"
+            >
               &#128065;
             </button>
           </div>
           <input
             type="password"
-            id="confirmPassword"
+            v-model="menu.register.confirmPassword"
             name="confirmPassword"
             placeholder="Confirmar Senha"
             required
           />
           <button type="submit" class="btn">Registrar</button>
-          <button class="change" type="button" @click="toggle">Entrar</button>
+          <button
+            class="change"
+            type="button"
+            @click="() => (menu.switchLoginRegister = true)"
+          >
+            Entrar
+          </button>
         </form>
       </div>
     </section>
@@ -74,27 +94,53 @@
 </template>
 
 <script setup>
-const toggle = () => {
-  const login = document.getElementById("login");
-  const register = document.getElementById("register");
-  if (login.classList.contains("hidden")) {
-    login.classList.remove("hidden");
-    register.classList.add("hidden");
-  } else {
-    login.classList.add("hidden");
-    register.classList.remove("hidden");
-  }
+import axios from "axios";
+import { reactive } from "vue";
+
+/**
+ * Object conaining all the reactive data used for changes and form submission
+ */
+const menu = reactive({
+  switchLoginRegister: true,
+  inputType: "password",
+  login: {
+    email: "",
+    password: "",
+  },
+  register: {
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  },
+});
+
+//temporary
+const sendLogin = async () => {
+  axios
+    .post("login", menu.login)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
-const showPassword = () => {
-  const password = document.querySelectorAll("#password")[0];
-  const regPassword = document.querySelectorAll("#password")[1];
-  if (password.type === "password" || regPassword.type === "password") {
-    password.type = "text";
-    regPassword.type = "text";
-  } else {
-    password.type = "password";
-    regPassword.type = "password";
+
+//temporary
+const sendRegister = async () => {
+  if (menu.register.password !== menu.register.confirmPassword) {
+    alert("Senhas não conferem");
+    return;
   }
+  axios
+    .post("register", menu.register)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 </script>
 

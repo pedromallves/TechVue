@@ -1,10 +1,10 @@
 <template>
   <li class="product">
-    <router-link class="product-content" :to="comp.path">
-      <img class="product-image" :src="comp.src" alt="imagem de produto" />
+    <router-link class="product-content" :to="compProps.path">
+      <img class="product-image" :src="compProps.src" alt="imagem de produto" />
       <h2 class="product-name">{{ props.product.name }}</h2>
-      <h2 class="product-price">{{ comp.price }}</h2>
-      <p class="product-installments">10x de {{ comp.Installments }}</p>
+      <h2 class="product-price">{{ compProps.price }}</h2>
+      <p class="product-installments">10x de {{ compProps.Installments }}</p>
     </router-link>
     <button v-if="product.availability == 'available'" class="btn" @click="add">
       Comprar
@@ -30,7 +30,7 @@ const props = defineProps({
 /**
  * Computed component containing the formatted prices and the image path
  */
-const comp = computed(() => {
+const compProps = computed(() => {
   const parcels = props.product.price / 10;
   return {
     src: `/src/assets/images/product/${props.product.id}/prod-${props.product.id}1.svg`,
